@@ -1,5 +1,6 @@
 //#include <libxml/encoding.h>
 #include <libxml/xmlwriter.h>
+#include <libxml/parser.h>
 
 namespace xmlGenerator
 {

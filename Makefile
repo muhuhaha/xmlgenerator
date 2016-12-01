@@ -9,19 +9,21 @@ LFLAGS		= -lxml2
 # source codes 
 ##########################################
 
+SOURCE		= xmlGenerator.cpp
+OUTPUT		= xmlGenerator
 
 ##########################################
 # compile/link
 ##########################################
-all: xmlTest 
+all: xmlGenerator 
 
-xmlTest: xmltest.o
+xmlGenerator: xmlGenerator.o
 	@echo --------------------------------------------
-	@echo -- option : xmlTest
-	@echo compile/build : xmltest.cpp
+	@echo -- option : xmlGenerator
+	@echo compile/build : xmlGenerator.cpp
 	@echo --------------------------------------------
 	
-	$(CC) -o xmlTest $(CPPFLAGS) xmltest.cpp $(LFLAGS)
+	$(CC) -o $(OUTPUT) -g $(CPPFLAGS) $(SOURCE) $(LFLAGS)
 
 clean:
 	@echo --------------------------------------------
@@ -29,5 +31,4 @@ clean:
 	@echo clean all objects and executable 
 	@echo --------------------------------------------
 	
-	rm -f *.o xmlTest
-
+	rm -f *.o $(OUTPUT) 
