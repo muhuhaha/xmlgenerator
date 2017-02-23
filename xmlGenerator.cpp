@@ -16,7 +16,7 @@ conditions BaseXMLGenerator::getConditions()
 	return condition;
 }
 
-void BaseXMLGenerator::setXMLData(vector<pair<string, string> > meta, vector<string> data)
+void BaseXMLGenerator::setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data)
 {
 	cout << "BaseXMlGenerator setXMLData!" << endl;
 
@@ -37,7 +37,7 @@ conditions XMLResult::getConditions()
 	return xmlGenerator->condition;
 }
 
-void XMLResult::setXMLData(vector<pair<string, string> > meta, vector<string> data)
+void XMLResult::setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data)
 {
 	cout << "XMLResult setXMLData!" << endl;
 
@@ -64,7 +64,7 @@ conditions XMLSchema::getConditions()
 	return condition;
 }
 
-void XMLSchema::setXMLData(vector<pair<string, string> > meta, vector<string> data)
+void XMLSchema::setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data)
 {
 	cout << "XMLSchema setXMLData!" << endl;
 
@@ -72,7 +72,7 @@ void XMLSchema::setXMLData(vector<pair<string, string> > meta, vector<string> da
 	XMLResult::setXMLData(meta, data);
 
 	// traverse for this class
-	vector<string>::iterator itr;
+	vector<string>::const_iterator itr;
 
 	int count = 0;
 	for (itr = data.begin(); itr != data.end(); ++itr)
@@ -106,7 +106,7 @@ conditions XMLDTD::getConditions()
 	return condition;
 }
 
-void XMLDTD::setXMLData(vector<pair<string, string> > meta, vector<string> data)
+void XMLDTD::setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data)
 {
 	cout << "XMLDTD setXMLData!" << endl;
 
@@ -114,7 +114,7 @@ void XMLDTD::setXMLData(vector<pair<string, string> > meta, vector<string> data)
 	XMLResult::setXMLData(meta, data);
 
 	// traverse for this class
-	vector<string>::iterator itr;
+	vector<string>::const_iterator itr;
 
 	int count = 0;
 	for (itr = data.begin(); itr != data.end(); ++itr)
@@ -147,7 +147,7 @@ conditions XMLDocument::getConditions()
 	return condition;
 }
 
-void XMLDocument::setXMLData(vector<pair<string, string> > meta, vector<string> data)
+void XMLDocument::setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data)
 {
 	cout << "XMLDocument setXMLData!" << endl;
 
@@ -155,7 +155,7 @@ void XMLDocument::setXMLData(vector<pair<string, string> > meta, vector<string> 
 	XMLResult::setXMLData(meta, data);
 
 	// traverse for this class
-	vector<string>::iterator itr;
+	vector<string>::const_iterator itr;
 
 	for (itr = data.begin(); itr != data.end(); ++itr)
 	{
@@ -188,7 +188,7 @@ int main()
 		new xmlGenerator::XMLSchema(
 //		new xmlGenerator::XMLDTD(
 		new xmlGenerator::XMLDocument(
-		new xmlGenerator::BaseXMLGenerator());
+		new xmlGenerator::BaseXMLGenerator()));
 
 	std::vector<std::pair<std::string, std::string> > meta;
 	meta.push_back(std::make_pair("C1", "integer"));
@@ -203,7 +203,7 @@ int main()
 	data.push_back("e");
 
 	baseXMLGenerator->setXMLData(meta, data);
-	//std::cout << baseXMLGenerator->generateXMLDocument() << endl;
+	std::cout << baseXMLGenerator->generateXMLDocument() << endl;
 
 	delete baseXMLGenerator;
 

@@ -26,7 +26,7 @@ public:
 	virtual void setConditions(conditions condi) = 0;
 	virtual conditions getConditions() = 0;
 
-	virtual void setXMLData(vector<pair<string, string> > meta, vector<string> data) = 0;
+	virtual void setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data) = 0;
 	virtual string generateXMLDocument() = 0;
 //	virtual bool verifyXML() = 0;
 };
@@ -36,7 +36,7 @@ class BaseXMLGenerator : public XMLGenerator
 	void setConditions(conditions condi);
 	conditions getConditions();
 
-	void setXMLData(vector<pair<string, string> > meta, vector<string> data);
+	void setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data);
 	string generateXMLDocument();
 };
 
@@ -59,7 +59,7 @@ public:
 	void setConditions(conditions condi);
 	conditions getConditions();
 
-	void setXMLData(vector<pair<string, string> > meta, vector<string> data);
+	void setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data);
 	string generateXMLDocument();
 };
 
@@ -71,7 +71,7 @@ public:
 	void setConditions(conditions condi);
 	conditions getConditions();
 
-	void setXMLData(vector<pair<string, string> > meta, vector<string> data);
+	void setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data);
 	string generateXMLDocument();
 };
 
@@ -83,7 +83,7 @@ public:
 	void setConditions(conditions condi);
 	conditions getConditions();
 
-	void setXMLData(vector<pair<string, string> > meta, vector<string> data);
+	void setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data);
 	string generateXMLDocument();
 };
 
@@ -95,7 +95,7 @@ public:
 	void setConditions(conditions condi);
 	conditions getConditions();
 
-	void setXMLData(vector<pair<string, string> > meta, vector<string> data);
+	void setXMLData(const vector<pair<string, string> > &meta, const vector<string> &data);
 	string generateXMLDocument();
 };
 
